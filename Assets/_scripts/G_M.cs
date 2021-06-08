@@ -5,6 +5,7 @@ using UnityEngine;
 public enum GameState { NullState, Intro, MainMenu, Game }
 public delegate void OnStateChangeHandler();
 
+
 public class G_M : MonoBehaviour // Unity class in case update() is needed 
 {
     protected G_M() {}

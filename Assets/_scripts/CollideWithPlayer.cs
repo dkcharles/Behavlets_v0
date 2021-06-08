@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class CollideWithPlayer : MonoBehaviour
 {
+    public Inventory inventory;
     void Start()
     {
         
@@ -19,13 +20,14 @@ public class CollideWithPlayer : MonoBehaviour
         print("pop!");
         if (other.gameObject.tag == "Player")
         {           
-            PointCollected();  
+            PointCollected(other.gameObject);  
         }
     }
 
-    void PointCollected()
+    void PointCollected(GameObject go)
     { 
         G_M.ballsGathered++;
+        inventory.ballsCollected += 1;
         print("found " + G_M.ballsGathered + " balls");
         Destroy(gameObject);
     }
