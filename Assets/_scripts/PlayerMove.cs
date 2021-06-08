@@ -26,7 +26,7 @@ public class PlayerMove : MonoBehaviour
 
     void Start()
     {
-        Cursor.lockState = CursorLockMode.Locked;
+        // Cursor.lockState = CursorLockMode.Locked; // hide mouse cursor which can be distracting
         
         Transform cameraTransform = Camera.main.gameObject.transform;  //Find main camera which is part of the scene instead of the prefab
         cameraTransform.parent = CameraMountPoint.transform;  //Make the camera a child of the mount point
@@ -60,18 +60,18 @@ public class PlayerMove : MonoBehaviour
         }
         else
         {
-            if (move.magnitude > 0) move -= transform.right*Time.deltaTime*friction + transform.forward*Time.deltaTime*friction;
+            if (move.magnitude > 0) move -= transform.forward*Time.deltaTime*friction;
         }
-        controller.Move(move * speed * Time.deltaTime);
 
-        if (isGrounded && velocity.y < 0) velocity.y = -4f;
+        if (isGrounded && velocity.y < 0) velocity.y = -2f;
 
         velocity.y += gravity * Time.deltaTime;
-    
+        controller.Move(move * speed * Time.deltaTime);
+
         if (goingUp) 
         {
             move.x = 0;
-            upForce -= Time.deltaTime;
+            upForce -= 0.5f*Time.deltaTime;
             velocity.y += upForce; 
             if (upForce < 0) 
             {
