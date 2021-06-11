@@ -22,7 +22,9 @@ public class PlayerMove : MonoBehaviour
     public float friction = 0.1f;
     
     float xRot = 0f;
-    public GameObject CameraMountPoint;
+
+    [SerializeField]    
+    private GameObject CameraMountPoint;
 
     void Start()
     {
@@ -56,7 +58,6 @@ public class PlayerMove : MonoBehaviour
                 upForce = jumpForce;
                 isGrounded = false;
             }
-
         }
         else
         {
@@ -78,7 +79,7 @@ public class PlayerMove : MonoBehaviour
                 goingUp = false;
             }
         }
-        controller.Move(velocity * Time.fixedDeltaTime);
+        controller.Move(velocity * Time.deltaTime);
     
         float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity * Time.deltaTime;
         float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity * Time.deltaTime;
@@ -86,8 +87,6 @@ public class PlayerMove : MonoBehaviour
         xRot -= mouseY;
         xRot = Mathf.Clamp(xRot, -90f, 90f);
 
-
-        playerBody.Rotate(Vector3.up * mouseX);  
-        
+        playerBody.Rotate(Vector3.up * mouseX);          
     }
 }

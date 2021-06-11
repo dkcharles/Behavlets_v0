@@ -26,9 +26,9 @@ public class CollideWithPlayer : MonoBehaviour
 
     void PointCollected(GameObject go)
     { 
-        G_M.ballsGathered++;
-        inventory.ballsCollected += 1;
+        G_M.ballsGathered++;            // balls collected stored in game manager singleton - persistent between scenes 
+        inventory.ballsCollected += 1;  // balls collected stored in Scriptable object (Inventory) - persistent between plays
         print("found " + G_M.ballsGathered + " balls");
-        Destroy(gameObject);
+        Destroy(gameObject);            // delete ball after collected. Though often better to return to a ball collection for recyling
     }
 }

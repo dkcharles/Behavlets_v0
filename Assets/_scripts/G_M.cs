@@ -43,7 +43,7 @@ public event OnStateChangeHandler OnStateChange;
     }
     void Start()
     {
-        
+        // if needed
     }
 
     void Update()
