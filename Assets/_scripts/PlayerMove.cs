@@ -5,6 +5,10 @@ using UnityEngine;
 public class PlayerMove : MonoBehaviour
 {
     public CharacterController controller; 
+
+    public AudioClip jumpSound;
+    public AudioClip PlayCollectBallSnd;
+    public AudioSource AO;
     public float jumpForce = 100f;
     private bool goingUp = false;
 
@@ -25,6 +29,11 @@ public class PlayerMove : MonoBehaviour
 
     [SerializeField]    
     private GameObject CameraMountPoint;
+
+    public void playCollectBallSnd()
+    {
+        if (PlayCollectBallSnd != null) AO.PlayOneShot(PlayCollectBallSnd);
+    }
 
     void Start()
     {
@@ -54,6 +63,8 @@ public class PlayerMove : MonoBehaviour
             
             if (Input.GetButtonDown("Jump"))
             {
+                if (jumpSound != null) AO.PlayOneShot(jumpSound);
+                
                 goingUp = true;
                 upForce = jumpForce;
                 isGrounded = false;
