@@ -40,10 +40,11 @@
      <Compile Include="Assets\_scripts\PlayerMove.cs" />
      <Compile Include="Assets\_scripts\Not Used\MouseLook.cs" />
      <Compile Include="Assets\_scripts\BallSpawn.cs" />
-     <Compile Include="Assets\_scripts\CollideWithPlayer.cs" />
-     <Compile Include="Assets\_scripts\G_M.cs" />
      <Compile Include="Assets\_scriptableObjects\Inventory.cs" />
      <Compile Include="Assets\_scripts\PlayerInteractions.cs" />
+     <Compile Include="Assets\_scripts\CollideWithPlayer.cs" />
+     <Compile Include="Assets\_scripts\G_M.cs" />
+     <Compile Include="Assets\_scripts\AI_Behaviour.cs" />
      <None Include="Assets\Day-Night Skyboxes\Textures\Readme for Assigning.txt" />
      <None Include="Assets\Day-Night Skyboxes\readme.txt" />
     <Reference Include="UnityEngine">
@@ -270,12 +271,6 @@
     </Reference>
     <Reference Include="Newtonsoft.Json">
         <HintPath>D:/_UnityProjects/Interns_2021/Behavlets_v0/Library/PackageCache/com.unity.nuget.newtonsoft-json@2.0.0/Runtime/Newtonsoft.Json.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEditor.iOS.Extensions.Xcode">
-        <HintPath>C:/Program Files/Unity/Hub/Editor/2020.3.10f1/Editor/Data/PlaybackEngines/iOSSupport/UnityEditor.iOS.Extensions.Xcode.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEditor.iOS.Extensions.Common">
-        <HintPath>C:/Program Files/Unity/Hub/Editor/2020.3.10f1/Editor/Data/PlaybackEngines/iOSSupport/UnityEditor.iOS.Extensions.Common.dll</HintPath>
     </Reference>
     <Reference Include="netstandard">
         <HintPath>C:/Program Files/Unity/Hub/Editor/2020.3.10f1/Editor/Data/NetStandard/ref/2.0.0/netstandard.dll</HintPath>
@@ -625,11 +620,17 @@
     <Reference Include="Unity.VSCode.Editor">
         <HintPath>D:/_UnityProjects/Interns_2021/Behavlets_v0/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
     </Reference>
+    <Reference Include="Unity.ProBuilder.AssetIdRemapUtility">
+        <HintPath>D:/_UnityProjects/Interns_2021/Behavlets_v0/Library/ScriptAssemblies/Unity.ProBuilder.AssetIdRemapUtility.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.TextMeshPro.Editor">
         <HintPath>D:/_UnityProjects/Interns_2021/Behavlets_v0/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VisualStudio.Editor">
         <HintPath>D:/_UnityProjects/Interns_2021/Behavlets_v0/Library/ScriptAssemblies/Unity.VisualStudio.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.ProBuilder.AddOns.Editor">
+        <HintPath>D:/_UnityProjects/Interns_2021/Behavlets_v0/Library/ScriptAssemblies/Unity.ProBuilder.AddOns.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Timeline.Editor">
         <HintPath>D:/_UnityProjects/Interns_2021/Behavlets_v0/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
@@ -639,6 +640,12 @@
     </Reference>
     <Reference Include="Unity.TextMeshPro">
         <HintPath>D:/_UnityProjects/Interns_2021/Behavlets_v0/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.ProBuilder">
+        <HintPath>D:/_UnityProjects/Interns_2021/Behavlets_v0/Library/ScriptAssemblies/Unity.ProBuilder.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.ProBuilder.Editor">
+        <HintPath>D:/_UnityProjects/Interns_2021/Behavlets_v0/Library/ScriptAssemblies/Unity.ProBuilder.Editor.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.UI">
         <HintPath>D:/_UnityProjects/Interns_2021/Behavlets_v0/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>

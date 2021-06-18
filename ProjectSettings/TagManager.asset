@@ -6,6 +6,7 @@ TagManager:
   tags:
   - CameraMountPoint
   - Ground
+  - AI
   layers:
   - Default
   - TransparentFX

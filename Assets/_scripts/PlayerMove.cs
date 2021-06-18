@@ -12,7 +12,7 @@ public class PlayerMove : MonoBehaviour
     public float jumpForce = 100f;
     private bool goingUp = false;
 
-    public float speed = 12f;
+    public float speed = 15f;
     public float gravity = -98f;
     Vector3 velocity; 
     public Transform groundCheck;
@@ -23,7 +23,7 @@ public class PlayerMove : MonoBehaviour
     public float mouseSensitivity = 100f; 
     Transform playerBody; 
     Vector3 move;
-    public float friction = 0.1f;
+    public float friction = 0.01f;
     
     float xRot = 0f;
 
@@ -72,17 +72,18 @@ public class PlayerMove : MonoBehaviour
         }
         else
         {
-            if (move.magnitude > 0) move -= transform.forward*Time.deltaTime*friction;
+            if (move.magnitude > 0) {
+                // ? add friction due to wind resistance?
+            }
         }
 
-        if (isGrounded && velocity.y < 0) velocity.y = -2f;
+        if (isGrounded && velocity.y < 0) velocity.y = -2f; // pushes to the ground
 
         velocity.y += gravity * Time.deltaTime;
         controller.Move(move * speed * Time.deltaTime);
 
         if (goingUp) 
         {
-            move.x = 0;
             upForce -= 0.5f*Time.deltaTime;
             velocity.y += upForce; 
             if (upForce < 0) 
