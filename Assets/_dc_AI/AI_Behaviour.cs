@@ -3,20 +3,20 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public enum PlayerState {patrol, chase, attack}
+public enum AIState {patrol, chase, attack}
 public class AI_Behaviour : MonoBehaviour
 {
     public Transform target;
-    public PlayerState playerState;
+    public AIState aiState;
     private Animator _animator;
-    NavMeshAgent _AI;
+    public NavMeshAgent AI;
     // Start is called before the first frame update
     void Start()
     {
-        _AI = GetComponent<NavMeshAgent>();
+        AI = GetComponent<NavMeshAgent>();
         _animator = GetComponent<Animator>();
 
-        playerState = PlayerState.patrol;
+        aiState = AIState.patrol;
     }
 
     // Update is called once per frame

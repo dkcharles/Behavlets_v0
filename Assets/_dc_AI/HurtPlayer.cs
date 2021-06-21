@@ -9,7 +9,8 @@ public class HurtPlayer : StateMachineBehaviour
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         ai_Behaviour = animator.GetComponentInParent<AI_Behaviour>();
-        ai_Behaviour.playerState = PlayerState.attack;
+        ai_Behaviour.AI.isStopped = false;
+        ai_Behaviour.aiState = AIState.attack;
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks

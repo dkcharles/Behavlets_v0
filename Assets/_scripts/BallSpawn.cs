@@ -22,12 +22,12 @@ public class BallSpawn : MonoBehaviour
     IEnumerator SpawnObject()
     {
 
-            print("Start Spawning");
+            // print("Start Spawning");
             for (int i=0;i<numberSpawns; ++i)
             {
                 yield return StartCoroutine("Wait");
                 GameObject ballInstance = Instantiate(ballPrefab, this.transform.position, Quaternion.identity);
-                print("Spawning " + i);
+                // print("Spawning " + i);
             }
         
     }
