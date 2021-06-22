@@ -151,6 +151,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
+  aiState: 0
+  AI: {fileID: 0}
 --- !u!95 &6442942902235573677
 Animator:
   serializedVersion: 3

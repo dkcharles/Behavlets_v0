@@ -280,3 +280,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ai_Behaviour: {fileID: 0}
+  wayPoint: {x: 0, y: 0, z: 0}
