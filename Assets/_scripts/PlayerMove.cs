@@ -8,7 +8,7 @@ public class PlayerMove : MonoBehaviour
 
     public AudioClip jumpSound;
     public AudioClip PlayCollectBallSnd;
-    public AudioSource AO;
+    public AudioSource AS;
     public float jumpForce = 100f;
     private bool goingUp = false;
 
@@ -32,7 +32,7 @@ public class PlayerMove : MonoBehaviour
 
     public void playCollectBallSnd()
     {
-        if (PlayCollectBallSnd != null) AO.PlayOneShot(PlayCollectBallSnd);
+        if (PlayCollectBallSnd != null) AS.PlayOneShot(PlayCollectBallSnd);
     }
 
     void Start()
@@ -63,7 +63,7 @@ public class PlayerMove : MonoBehaviour
             
             if (Input.GetButtonDown("Jump"))
             {
-                if (jumpSound != null) AO.PlayOneShot(jumpSound);
+                if (jumpSound != null) AS.PlayOneShot(jumpSound);
                 
                 goingUp = true;
                 upForce = jumpForce;
@@ -77,7 +77,7 @@ public class PlayerMove : MonoBehaviour
             }
         }
 
-        if (isGrounded && velocity.y < 0) velocity.y = -2f; // pushes to the ground
+        if (isGrounded && velocity.y < 0) velocity.y = -2f; // pushes player closer to the ground
 
         velocity.y += gravity * Time.deltaTime;
         controller.Move(move * speed * Time.deltaTime);
@@ -99,6 +99,9 @@ public class PlayerMove : MonoBehaviour
         xRot -= mouseY;
         xRot = Mathf.Clamp(xRot, -90f, 90f);
 
-        playerBody.Rotate(Vector3.up * mouseX);          
+        Quaternion cameraAngle = CameraMountPoint.transform.localRotation;
+        CameraMountPoint.transform.localRotation = Quaternion.Euler(xRot, cameraAngle.eulerAngles.y, cameraAngle.eulerAngles.z);  // angles are expresses as Quarternions 4D
+
+        playerBody.Rotate(0, mouseX, 0);          
     }
 }
